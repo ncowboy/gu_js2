@@ -1,22 +1,18 @@
 class Burger {
   constructor() {
-    this.init();
+    console.log(`Стоимость бургера: ${Burger.calculateSum()}`);
+    console.log(`Количество калорий: ${Burger.calculateCalories()}`);
   }
 
-  init() {
-    console.log(`Стоимость бургера: ${this.calculateSum()}`);
-    console.log(`Количество калорий: ${this.calculateCalories()}`);
+  static calculateSum() {
+    return Burger.calculateValue('price');
   }
 
-  calculateSum() {
-    return this.calculateValue('price');
+  static calculateCalories() {
+    return Burger.calculateValue('ccals');
   }
 
-  calculateCalories() {
-    return this.calculateValue('ccals');
-  }
-
-  calculateValue(data) {
+  static calculateValue(data) {
     let result = 0;
     const spice = document.getElementById('spice');
     const mayo = document.getElementById('mayo');
@@ -32,5 +28,5 @@ class Burger {
 
 document.getElementById('calc').addEventListener('click', (event) => {
   event.preventDefault();
-  new Burger();
+  let burger = new Burger();
 });
