@@ -1,14 +1,14 @@
 const products = [
-    {title: 'Notebook', 'img': 'soon.png', price: 2000},
-    {title: 'Mouse', 'img': 'soon.png', price: 20},
-    {title: 'Keyboard', 'img': 'soon.png', price: 48},
-    {title: 'Gamepad', 'img': 'soon.png', price: 63},
-    {title: 'Chair', 'img': 'soon.png', price: 200},
-    {title: 'Table', 'img': 'soon.png', price: 2050}
+    {title: 'Notebook', price: 2000},
+    {title: 'Mouse', price: 20},
+    {title: 'Keyboard', price: 48},
+    {title: 'Gamepad', price: 63},
+    {title: 'Chair', price: 200},
+    {title: 'Table', price: 2050}
 ];
 
 
-const renderProduct = (title, price, img) => {
+const renderProduct = (title, price, img = 'soon.png') => {
     return `<div class="product-item card col-lg-2 col-md-3 col-sm-4">
               <img src="img/${img}" alt="${title}" class="card-img-top">
               <div class="card-body d-flex flex-column justify-content-between">
