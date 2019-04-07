@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Интернет-магазин</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="d-flex justify-content-end">
+    <button class="btn btn-success mr-3 mt-3" data-toggle="popover" title="Popover title"
+            data-content="And here's some amazing content. It's very engaging. Right?" type="button"><i
+        class="fas fa-shopping-cart"></i> Корзина
+    </button>
+    <div class="cart-content">
+      <div class="cart-item">
+        <div class="cart-item-img"><img src="img/soon.png" alt="soon"></div>
+        <div class="cart-item-name">Товар1</div>
+        <div class="cart-item-qty">2</div>
+        <div class="cart-item-price">100500</div>
+        <a href="#" class="cart-item-delete"><i class="fas fa-times-circle"></i></a>
+      </div>
+      <div class="cart-item">
+        <div class="cart-item-img"><img src="img/soon.png" alt="soon"></div>
+        <div class="cart-item-name">Товар1</div>
+        <div class="cart-item-qty">2</div>
+        <div class="cart-item-price">100500</div>
+      </div>
+      <div class="cart-item">
+        <div class="cart-item-img"><img src="img/soon.png" alt="soon"></div>
+        <div class="cart-item-name">Товар1</div>
+        <div class="cart-item-qty">2</div>
+        <div class="cart-item-price">100500</div>
+      </div>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <div class="products row"></div>
+  </div>
+</main>
+<script src="js/main.js"></script>
+<script>
+    window.onload = () => document.querySelector('.btn').addEventListener('click', event => {
+        event.target.nextElementSibling.classList.toggle('cart-content_open');
+    });
+</script>
+</body>
+</html>

@@ -67,9 +67,6 @@ class Cart {
     this.render();
   }
 
-  addToCart() {
-  }
-
   calculateCart() {
   }
 
@@ -83,6 +80,8 @@ class ProductInCart extends Product {
     this.count = null;
   }
 
+  addToCart() {
+  }
 }
 
 
