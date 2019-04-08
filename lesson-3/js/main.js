@@ -1,8 +1,9 @@
+"use strict";
+
 const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
 
 class Catalog {
   constructor() {
-    this.goods = [];
     this.allProducts = [];
     this.init();
   }
@@ -11,23 +12,15 @@ class Catalog {
     this._getProducts();
   }
 
-
   _getProducts() {
-    fetch(`${API}/catalogData.json`)
-        .then(result => result.json())
-        .then(data => {
-          this.goods = [...data];
-          console.log(this.goods);
-          this.render();
-        })
-        .catch(error => {
-          console.log(error)
-        });
+   const request = new Request('catalogData.json');
+    console.log(request.result);
+    this.render(request.result);
   }
 
-  render() {
+  render(products) {
     const block = document.querySelector('.products');
-    this.goods.forEach(product => {
+    products.forEach(product => {
       const prod = new Product(product);
       this.allProducts.push(prod);
       block.insertAdjacentHTML('beforeend', prod.render())
@@ -81,10 +74,27 @@ class ProductInCart extends Product {
     super(product, img);
     this.count = null;
   }
-
-
 }
 
+class Request {
+  constructor(dir) {
+    this.dir = dir;
+    this.host = API;
+    this.result = [];
+    this._exec();
+  }
+  _exec() {
+      fetch(`${this.host}/${this.dir}`)
+      .then(result => result.json())
+      .then(data => {
+        [...data].forEach(value => {
+          this.result.push(value);
+        });
+      })
+  }
+}
 
 let catalog = new Catalog();
 let cart = new Cart();
+
+
