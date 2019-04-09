@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Интернет-магазин</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="d-flex justify-content-end">
+    <button class="btn btn-success mr-3 mt-3" data-toggle="popover" title="Popover title"
+            data-content="And here's some amazing content. It's very engaging. Right?" type="button"><i
+        class="fas fa-shopping-cart"></i> Корзина
+    </button>
+    <div class="cart-content"></div>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <div class="products row"></div>
+  </div>
+</main>
+<script src="js/main.js"></script>
+<script>
+  window.onload = () => {
+    document.querySelector('.btn').addEventListener('click', event => {
+      event.target.nextElementSibling.classList.toggle('cart-content_open');
+    });
+
+    document.querySelector('.products').addEventListener('click', event => {
+      if(event.target.tagName === 'BUTTON') {
+        cart._addProductToCart(+event.target.dataset.id);
+      }
+    });
+
+    document.querySelector('.cart-content').addEventListener('click', event => {
+      if(event.target.tagName === 'A') {
+        cart._deleteProductFromCart(+event.target.dataset.id);
+      }
+    });
+  }
+
+</script>
+</body>
+</html>
