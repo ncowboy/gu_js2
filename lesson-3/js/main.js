@@ -8,11 +8,7 @@ class Catalog {
     this.init();
   }
 
-  init() {
-    this._getProducts();
-  }
-
-  async _getProducts() {
+  async init() {
     const request = new Request('catalogData.json');
     const data = await request._exec();
     this.render([...data]);
@@ -63,9 +59,10 @@ class Cart {
     this.init();
   }
 
-  init() {
-    this._getProductsInCart();
-    this.render(this.productsInCart);
+  async init() {
+    const request = new Request('getBasket.json');
+    const data = await request._exec();
+    this.render([...data['contents']]);
   }
 
   render(products) {
@@ -75,12 +72,6 @@ class Cart {
       this.productsInCart.push(prod);
       block.insertAdjacentHTML('beforeend', prod.render());
     });
-  }
-
-  async _getProductsInCart() {
-    const request = new Request('getBasket.json');
-    const data = await request._exec();
-    this.render([...data['contents']]);
   }
 
   _searchProductInCart(productId) {
