@@ -18,28 +18,55 @@ class FormValidator {
   _init() {
     const form = document.querySelector(this.formSelector);
     form.addEventListener('submit', e => {
-      e.preventDefault();
-      this._validateFields(form);
+      console.log(this._validateFields(form));
+      // if(!(this._validateFields(form) && this.isValid)){
+      //   e.preventDefault();
+      // }
     });
+
+
   }
 
   _validateFields(formEl) {
     const fields = [...formEl.getElementsByTagName('INPUT')];
     fields.forEach(field => {
-      if(this._validateField(field)) {
-        field.parentElement.classList.remove('has-error');
-        field.nextElementSibling.innerHTML = '';
-        field.parentElement.classList.add('has-success');
-      }else{
-        field.parentElement.classList.remove('has-success');
-        field.parentElement.classList.add('has-error');
-        field.nextElementSibling.innerHTML = this.errors[field.name];
+      this._watchField(field);
+      if (this._validateField(field)) {
+        this._handleSuccess(field);
+        //this.isValid = true;
+        return true;
+      } else {
+        this._handleError(field);
+        //this.isValid = false;
+        return false;
       }
     });
   }
 
   _validateField(field) {
     return this.rules[field.name].test(field.value);
+  }
+
+  _handleSuccess(field) {
+    field.parentElement.classList.remove('has-error');
+    field.nextElementSibling.innerHTML = '';
+    field.parentElement.classList.add('has-success');
+  }
+
+  _handleError(field) {
+    field.parentElement.classList.remove('has-success');
+    field.parentElement.classList.add('has-error');
+    field.nextElementSibling.innerHTML = this.errors[field.name];
+  }
+
+  _watchField(field) {
+    field.addEventListener('input', () => {
+      if (this._validateField(field)) {
+        this._handleSuccess(field);
+      } else {
+        this._handleError(field);
+      }
+    });
   }
 
 }
