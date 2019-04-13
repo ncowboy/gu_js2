@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Интернет-магазин</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header>
+    <div class="d-flex justify-content-end">
+      <button @click="showCart" class="btn btn-success mr-3 mt-3" data-toggle="popover" title="Popover title"
+              data-content="And here's some amazing content. It's very engaging. Right?" type="button"><i
+          class="fas fa-shopping-cart"></i> Корзина
+      </button>
+      <div class="cart-content">
+        <div class="cart-item" :data-id="product.id_product" v-for="product in productsInCart"
+             :key="product.id_product">
+          <div class="cart-item-img">
+            <img :src="defaultImg" :alt="product.product_name">
+          </div>
+          <div class="cart-item-name">{{ product.product_name }}</div>
+          <div class="cart-item-qty">{{ product.quantity }}</div>
+          <div class="cart-item-sum">{{ product.price * product.quantity }}</div>
+          <a href="#" class="cart-item-delete" :data-id="product.id_product"><i class="fas fa-times-circle"></i></a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <div class="products row">
+        <div class="product-item col-lg-3 col-md-6 mb-4" :data-id="product.id_product" v-for="product in products"
+             :key="product.id_product">
+          <div class="card h-100">
+            <img :src="defaultImg" :alt="product.product_name" class="card-img-top">
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="card-title">{{ product.product_name }}</h5>
+              <p class="card-text">Цена: {{ product.price }} р.</p>
+              <button class="cart-button btn btn-primary" :data-id="product.id_product" type="submit"><i
+                  class="fas fa-cart-arrow-down"></i> Добавить
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
