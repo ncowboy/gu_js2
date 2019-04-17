@@ -4,11 +4,11 @@ const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-a
 
 const app = new Vue({
   el: '#app',
-
   data: {
     products: [],
     isFilterOn: false,
     filteredProducts: [],
+    showCart: false,
     productsInCart: [],
     defaultImg: 'img/soon.png',
     searchString: ''
@@ -21,18 +21,13 @@ const app = new Vue({
           console.log(error)
         });
     },
-    showCart() {
-      document.querySelector('.cart-content').classList.toggle('cart-content_open');
-    },
 
     addToCart(product) {
       const object = this.findProductInCart(product.id_product);
       if (object) {
         object.quantity++;
       } else {
-        let newProduct = {};
-        Object.assign(newProduct, product);
-        newProduct.quantity = 1;
+        let newProduct = Object.assign({quantity: 1}, product);
         this.productsInCart.push(newProduct);
       }
     },

@@ -24,17 +24,13 @@
           <input class="form-control mr-sm-2" type="text" v-model="searchString" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
         </form>
-        <button @click="showCart" class="btn btn-success ml-3" data-toggle="popover" title="Popover title"
-                data-content="And here's some amazing content. It's very engaging. Right?" type="button"><i
+        <button @click="showCart = !showCart" class="btn btn-success ml-3" type="button"><i
             class="fas fa-shopping-cart"></i> {{ calculateCartQuantity ? 'Товаров: ' + calculateCartQuantity +
           ' на сумму: ' + calculateCartSum  : 'Корзина пуста'}}  </button>
       </div>
     </nav>
     <div class="d-flex justify-content-end">
-      <button @click="showCart" class="btn btn-success mr-3 mt-3" data-toggle="popover" type="button"><i
-          class="fas fa-shopping-cart"></i> Корзина
-      </button>
-      <div class="cart-content">
+      <div class="cart-content" v-show="showCart">
         <div class="cart-item" :data-id="product.id_product" v-for="product in productsInCart" :key="product.id_product">
           <div class="cart-item-img">
             <img :src="defaultImg" :alt="product.product_name">
