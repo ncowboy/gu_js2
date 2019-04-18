@@ -2,6 +2,7 @@ Vue.component('cart', {
     data() {
         return {
             productsInCart: [],
+            //getProductsInCartUrl: 'getBvvvasket.json',
             getProductsInCartUrl: 'getBasket.json',
             addToCartUrl: 'addToBasket.json',
             deleteFromCartUrl: 'deleteFromBasket.json',
@@ -13,9 +14,11 @@ Vue.component('cart', {
     mounted() {
         this.$parent.request(this.getProductsInCartUrl)
             .then(data => {
+              if(data) {
                 for (let el of data['contents']) {
-                    this.productsInCart.push(el);
+                  this.productsInCart.push(el);
                 }
+              }
             });
     },
 
@@ -23,7 +26,7 @@ Vue.component('cart', {
         addToCart(product) {
             this.$parent.request(this.addToCartUrl)
                 .then(data => {
-                    if (data.result) {
+                    if (data && data.result) {
                         const object = this.findProductInCart(product.id_product);
                         if (object) {
                             object.quantity++;
@@ -36,9 +39,9 @@ Vue.component('cart', {
         },
 
         deleteFromCart(product) {
-            this.$parent.request(this.addToCartUrl)
+            this.$parent.request(this.deleteFromCartUrl)
                 .then(data => {
-                    if (data.result) {
+                    if (data && data.result) {
                         if (product.quantity > 1) {
                             product.quantity--;
                         } else {
