@@ -2,9 +2,26 @@ Vue.component('catalog', {
   data() {
     return {
       products: [],
-      requestUrl: 'cataaaalogData.json',
-      //requestUrl: 'catalogData.json',
+      filteredProducts: [],
+      isFilterOn: false,
+     // requestUrl: 'cataaaalogData.json',
+      requestUrl: 'catalogData.json',
       img: this.$parent.defaultImg
+    }
+  },
+
+  methods: {
+    filterProduct(string){
+      this.isFilterOn = true;
+      const regexp = new RegExp(string, 'i');
+      this.filteredProducts = this.products.filter(good => regexp.test(good.product_name));
+    },
+
+    isFounded(product) {
+      const index = this.filteredProducts.findIndex(prod => {
+        return product.id_product === prod.id_product;
+      });
+      return (index !== -1);
     }
   },
 
@@ -16,7 +33,6 @@ Vue.component('catalog', {
             this.products.push(el);
           }
         }
-
       });
   },
   template: `<div class="products row">
@@ -33,7 +49,7 @@ Vue.component('catalog', {
 Vue.component('catalog-item', {
   props: ['item', 'img'],
   template: `<div class="product-item col-lg-3 col-md-6 mb-4"
-                v-if="!$root.$refs.search.isFilterOn || $root.$refs.search.isFounded(item)">
+                v-if="!$parent.isFilterOn || $parent.isFounded(item)">
                   <div class="card h-100">
                     <img 
                       :src="img" 
