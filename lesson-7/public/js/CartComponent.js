@@ -3,7 +3,7 @@ Vue.component('cart', {
         return {
             productsInCart: [],
             //getProductsInCartUrl: 'getBvvvasket.json',
-            getProductsInCartUrl: 'getBasket.json',
+            getProductsInCartUrl: '/api/cart',
             addToCartUrl: 'addToBasket.json',
             deleteFromCartUrl: 'deleteFromBasket.json',
             img: this.$parent.defaultImg,
@@ -12,7 +12,7 @@ Vue.component('cart', {
     },
 
     mounted() {
-        this.$parent.request(this.getProductsInCartUrl)
+        this.$parent.getData(this.getProductsInCartUrl)
             .then(data => {
               if(data) {
                 for (let el of data['contents']) {
@@ -24,7 +24,7 @@ Vue.component('cart', {
 
     methods: {
         addToCart(product) {
-            this.$parent.request(this.addToCartUrl)
+            this.$parent.putData(this.addToCartUrl)
                 .then(data => {
                     if (data && data.result) {
                         const object = this.findProductInCart(product.id_product);
@@ -39,7 +39,7 @@ Vue.component('cart', {
         },
 
         deleteFromCart(product) {
-            this.$parent.request(this.deleteFromCartUrl)
+            this.$parent.getData(this.deleteFromCartUrl)
                 .then(data => {
                     if (data && data.result) {
                         if (product.quantity > 1) {
