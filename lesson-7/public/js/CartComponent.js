@@ -1,91 +1,97 @@
 Vue.component('cart', {
-    data() {
-        return {
-            productsInCart: [],
-            //getProductsInCartUrl: 'getBvvvasket.json',
-            getProductsInCartUrl: '/api/cart',
-            addToCartUrl: 'addToBasket.json',
-            deleteFromCartUrl: 'deleteFromBasket.json',
-            img: this.$parent.defaultImg,
-            showCart: false
+  data() {
+    return {
+      productsInCart: [],
+      getProductsInCartUrl: '/api/cart',
+      img: this.$parent.defaultImg,
+      showCart: false
+    }
+  },
+
+  mounted() {
+    this.$parent.getData(this.getProductsInCartUrl)
+      .then(data => {
+        if (data) {
+          for (let el of data['contents']) {
+            this.productsInCart.push(el);
+          }
         }
-    },
+      });
+  },
 
-    mounted() {
-        this.$parent.getData(this.getProductsInCartUrl)
-            .then(data => {
-              if(data) {
-                for (let el of data['contents']) {
-                  this.productsInCart.push(el);
-                }
-              }
-            });
-    },
-
-    methods: {
-        addToCart(product) {
-            this.$parent.putData(this.addToCartUrl)
-                .then(data => {
-                    if (data && data.result) {
-                        const object = this.findProductInCart(product.id_product);
-                        if (object) {
-                            object.quantity++;
-                        } else {
-                            let newProduct = Object.assign({quantity: 1}, product);
-                            this.productsInCart.push(newProduct);
-                        }
-                    }
-                });
-        },
-
-        deleteFromCart(product) {
-            this.$parent.getData(this.deleteFromCartUrl)
-                .then(data => {
-                    if (data && data.result) {
-                        if (product.quantity > 1) {
-                            product.quantity--;
-                        } else {
-                            const index = this.productsInCart.indexOf(product);
-                            this.productsInCart.splice(index, 1);
-                        }
-                    }
-                });
-
-        },
-
-        findProductInCart(productId) {
-            const index = this.productsInCart.findIndex(product => product.id_product === productId);
-            if (index !== -1) {
-                return this.productsInCart[index];
-            } else {
-                return false;
+  methods: {
+    addToCart(product) {
+      const object = this.findProductInCart(product.id_product);
+      if (object) {
+        this.$parent.putData(`/api/cart/${object.id_product}`, {quantity: 1})
+          .then(data => {
+            if (data.result) {
+              object.quantity++;
             }
-        },
+          })
+      } else {
+        let newProduct = Object.assign({quantity: 1}, product);
+        this.$parent.postData('/api/cart', newProduct)
+          .then(data => {
+            if (data.result) {
+              this.productsInCart.push(newProduct)
+            }
+          })
+      }
 
     },
 
-    computed: {
-        calculateCartQuantity() {
-            let sum = 0;
-            if (this.productsInCart.length !== 0) {
-                return this.productsInCart.reduce((accumulator, value = 0) => {
-                    return accumulator + value.quantity;
-                }, sum);
+    deleteFromCart(product) {
+      if (product.quantity > 1) {
+        this.$parent.putData(`/api/cart/${product.id_product}`, {quantity: -1})
+          .then(data => {
+            if (data.result) {
+              product.quantity--;
             }
-        },
-
-        calculateCartSum() {
-            let sum = 0;
-            if (this.productsInCart.length !== 0) {
-                return this.productsInCart.reduce((accumulator, value = 0) => {
-                    return accumulator + value.quantity * value.price;
-                }, sum);
+          })
+      } else {
+        this.$parent.deleteData('/api/cart/', {id: product.id_product})
+          .then(data => {
+            if (data.result) {
+              this.productsInCart.splice(this.productsInCart.indexOf(product), 1)
             }
-        },
-
+          })
+      }
     },
 
-    template: `<div>
+    findProductInCart(productId) {
+      const index = this.productsInCart.findIndex(product => product.id_product === productId);
+      if (index !== -1) {
+        return this.productsInCart[index];
+      } else {
+        return false;
+      }
+    },
+
+  },
+
+  computed: {
+    calculateCartQuantity() {
+      let sum = 0;
+      if (this.productsInCart.length !== 0) {
+        return this.productsInCart.reduce((accumulator, value = 0) => {
+          return accumulator + value.quantity;
+        }, sum);
+      }
+    },
+
+    calculateCartSum() {
+      let sum = 0;
+      if (this.productsInCart.length !== 0) {
+        return this.productsInCart.reduce((accumulator, value = 0) => {
+          return accumulator + value.quantity * value.price;
+        }, sum);
+      }
+    },
+
+  },
+
+  template: `<div>
                 <button class="btn btn-success ml-3" type="button"
                   @click="showCart = !showCart">
                   <i class="fas fa-shopping-cart"></i> 
@@ -105,8 +111,8 @@ Vue.component('cart', {
 });
 
 Vue.component('cart-item', {
-    props: ['cartItem', 'img'],
-    template: `<div class="cart-item">
+  props: ['cartItem', 'img'],
+  template: `<div class="cart-item">
                 <div class="cart-item-img">
                   <img :src="img" :alt="cartItem.product_name">
                 </div>

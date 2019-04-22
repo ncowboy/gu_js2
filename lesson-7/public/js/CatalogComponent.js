@@ -4,8 +4,7 @@ Vue.component('catalog', {
       products: [],
       filteredProducts: [],
       isFilterOn: false,
-     // requestUrl: 'cataaaalogData.json',
-      requestUrl: 'catalogData.json',
+      requestUrl: 'api/catalog',
       img: this.$parent.defaultImg
     }
   },
@@ -26,7 +25,7 @@ Vue.component('catalog', {
   },
 
   mounted() {
-    this.$parent.request(this.requestUrl)
+    this.$parent.getData(this.requestUrl)
       .then(data => {
         if (data) {
           for (let el of data) {

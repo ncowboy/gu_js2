@@ -2,15 +2,16 @@ Vue.component('error', {
   data(){
     return {
       isActive: false,
-      message: 'Connection Error',
+      message: '',
       requestedData: ''
     }
   },
 
   methods: {
-    activate(url) {
+    activate(url, data) {
       this.isActive = !this.isActive;
       this.requestedData = url;
+      this.message = data;
     }
   },
 
