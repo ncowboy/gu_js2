@@ -8,7 +8,7 @@ const app = new Vue({
       return fetch(url)
         .then(result => result.json())
         .catch(error => {
-          this.$refs.error.activate(url);
+          this.$refs.error.activate(url, error.message);
         });
     },
     postData(url, data) {
@@ -21,10 +21,10 @@ const app = new Vue({
       })
         .then(result => result.json())
         .catch(error => {
-          this.$refs.error.activate(url);
+          this.$refs.error.activate(url, error.message);
         })
     },
-    putData(url, data){
+    putData(url, data) {
       return fetch(url, {
         method: 'PUT',
         headers: {
@@ -34,8 +34,21 @@ const app = new Vue({
       })
         .then(result => result.json())
         .catch(error => {
-          this.$refs.error.activate(url);
+          this.$refs.error.activate(url, error.message);
         })
     },
+    deleteData(url, data) {
+      return fetch(url, {
+        method: 'DELETE',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      })
+        .then(result => result.json())
+        .catch(error => {
+          this.$refs.error.activate(url, error.message);
+        })
+    }
   }
 });
