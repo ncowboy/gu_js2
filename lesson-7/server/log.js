@@ -3,19 +3,27 @@ const moment = require('moment');
 
 
 let write = (product, action) => {
-  let log = {
+
+  let newLog = {
     'action': action,
     'product_name': product.product_name,
-    'datetime': moment().format('dddd, MMMM DD YYYY, h:mm:ss')
+    'datetime': moment().format('YYYY-MM-DD HH:mm:ss')
   };
 
-  fs.writeFile('server/db/stats.json', JSON.stringify(log), (err)=> {
-    if (err){
-      res.sendStatus(404, JSON.stringify({result: 0, text: err}));
+  fs.readFile('server/db/stats.json', 'utf-8', (err, data) => {
+    if(err){
+      console.log({result: 0, text: err});
     } else {
-      res.send({result: 1, text: 'Success!'})
+      let newData = JSON.parse(data);
+      newData.push(newLog);
+      fs.writeFile('server/db/stats.json', JSON.stringify(newData, null, 4), (err)=> {
+        if (err){
+          console.log(err);
+        }
+      })
     }
-  })
+  });
+
 };
 
 module.exports = write;
