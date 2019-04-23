@@ -1,0 +1,305 @@
+.feature-hor
+  background-color: #222224
+  color: #fbfbfb
+  text-align: center
+
+.feature-hor-item
+  padding: 89px 38px 110px 38px
+
+.feature-hor-img
+  margin-bottom: 30px
+  height: 40px
+
+
+.catalog
+  padding-top: 60px
+  &__body
+    width: 75%
+    padding-left: 11px
+  &__menu
+    width: 25%
+    padding-right: 46px
+    &-list
+      list-style: none
+      margin-left: 12px
+      margin-top: 20px
+    &-link
+      display: block
+      text-decoration: none
+      margin-bottom: 16px
+      color: #6f6e6e
+      font-size: 14px
+      font-weight: 400
+      text-transform: capitalize
+      &:hover
+        color: #ef5b70
+        text-decoration: none
+        transition: 0.3s ease-in-out
+    &-category
+      display: -webkit-box
+      display: -ms-flexbox
+      display: flex
+      -webkit-box-pack: justify
+      -ms-flex-pack: justify
+      justify-content: space-between
+      padding: 9px 0 9px 10px
+      color: #6f6e6e
+      font-size: 14px
+      font-weight: 700
+      text-transform: uppercase
+      cursor: pointer
+      -webkit-user-select: none
+      -moz-user-select: none
+      -ms-user-select: none
+      -o-user-select: none
+      user-select: none
+      outline: none
+      border-left: 5px solid #ef5b70
+      border-bottom: 1px solid #ebebeb
+      &:after
+        font-family: "Font Awesome 5 Free", sans-serif
+        content: '\f0de'
+        vertical-align: top
+      &::-webkit-details-marker
+        display: none
+  &__wrapper
+    display: -webkit-box
+    display: -ms-flexbox
+    display: flex
+    -webkit-box-pack: start
+    -ms-flex-pack: start
+    justify-content: flex-start
+  &__body
+  &__filter
+    width: 33%
+    -ms-flex-negative: 0
+    flex-shrink: 0
+    &-header
+      color: #6f6e6e
+      font-size: 14px
+      font-weight: 700
+      text-transform: uppercase
+      margin-bottom: 25px
+    &-trend
+      display: inline-block
+      text-decoration: none
+      color: #6f6e6e
+      font-size: 14px
+      line-height: 14px
+      font-weight: 400
+      text-transform: capitalize
+      border-right: 1px solid #ebebeb
+      padding: 0 8px
+      margin-bottom: 8px
+      &:hover
+        color: $pink
+        text-decoration: none
+        transition: 0.3s ease-in-out
+      &:nth-last-child(1)
+        border-right: 0
+      &:nth-child(1)
+        padding-left: 0
+    &-form
+      width: 25%
+      label
+        display: -webkit-box
+        display: -ms-flexbox
+        display: flex
+        margin-bottom: 18px
+        line-height: 13px
+        position: relative
+        color: #6f6e6e
+        -webkit-user-select: none
+        -moz-user-select: none
+        -ms-user-select: none
+        -o-user-select: none
+        user-select: none
+    &-sizes
+      display: -webkit-box
+      display: -ms-flexbox
+      display: flex
+      -ms-flex-wrap: wrap
+      flex-wrap: wrap
+      text-transform: uppercase
+    &-checkbox
+      opacity: 0
+      position: absolute
+      + label
+        &:before
+          content: ''
+          display: block
+          width: 13px
+          height: 13px
+          border: 1px solid #ebebeb
+          background-color: #ffffff
+          margin-right: 10px
+        &:after
+          content: ''
+          display: none
+          position: absolute
+          width: 9px
+          height: 9px
+          top: 3px
+          left: 3px
+          background-color: #6f6e6e
+      &:checked + label:after
+        display: block
+    &-range
+     -webkit-appearance: none
+     -moz-appearance: none
+     width: 100%
+     height: 6px
+     border-radius: 3px
+     background-color: #f0f0f0
+     &:focus
+       outline: none
+     &::-ms-track
+       width: 100%
+       cursor: pointer
+       background: transparent
+       border-color: transparent
+       color: transparent
+     &::-webkit-slider-thumb
+       -webkit-appearance: none
+       width: 14px
+       height: 14px
+       background-color: $pink
+       border-radius: 50%
+     &::-moz-range-thumb
+       -moz-appearance: none
+       width: 14px
+       height: 14px
+       background-color: $pink
+       border-radius: 50%
+       border: 0
+     &::-ms-thumb
+       width: 14px
+       height: 14px
+       background-color: $pink
+       border-radius: 50%
+       border: 0
+     &::-webkit-slider-runnable-track, &::-ms-track
+       height: 6px
+       border-radius: 3px
+       background-color: #f0f0f0
+     &::-moz-range-track
+       -moz-appearance: none
+       height: 6px
+       border-radius: 3px
+       background-color: #f0f0f0
+    &-price output
+      display: block
+      color: #6f6e6e
+      font-size: 14px
+      font-weight: 400
+      margin-top: 4px
+  &__filters
+    display: -webkit-box
+    display: -ms-flexbox
+    display: flex
+    -webkit-box-pack: justify
+    -ms-flex-pack: justify
+    justify-content: space-between
+  &__options
+    display: -moz-flex
+    display: -ms-flex
+    display: -o-flex
+    display: -webkit-box
+    display: -ms-flexbox
+    display: flex
+    background-color: #f3f3f3
+    padding: 10px 9px
+    color: #6f6e6e
+    font-size: 14px
+    font-weight: 400
+    text-transform: capitalize
+    margin-top: 30px
+    label
+      display: block
+      border: 1px solid #ebebeb
+      background-color: #ffffff
+      padding: 7px 13px
+      margin-bottom: 0
+      -webkit-user-select: none
+      -moz-user-select: none
+      -ms-user-select: none
+      -o-user-select: none
+      user-select: none
+    select
+      color: #6f6e6e
+      border: 1px solid #ebebeb
+      font-size: 14px
+      font-weight: 400
+      text-transform: capitalize
+      padding: 6px 13px
+      -webkit-user-select: none
+      -moz-user-select: none
+      -ms-user-select: none
+      -o-user-select: none
+      user-select: none
+    &-sort
+      display: -webkit-flex
+      display: -moz-flex
+      display: -ms-flex
+      display: -o-flex
+      display: flex
+    &-show
+      display: -webkit-flex
+      display: -moz-flex
+      display: -ms-flex
+      display: -o-flex
+      display: flex
+      margin-left: 10px
+
+  &__controls
+    display: -webkit-flex
+    display: -moz-flex
+    display: -ms-flex
+    display: -o-flex
+    display: flex
+    justify-content: space-between
+    padding-bottom: 110px
+
+  &__pagination
+    display: -webkit-flex
+    display: -moz-flex
+    display: -ms-flex
+    display: -o-flex
+    display: flex
+    border: 1px solid #ebebeb
+    background-color: #ffffff
+    &-item
+      -ms-align-self: center
+      align-self: center
+      color: #c4c4c4
+      font-size: 16px
+      font-weight: bold
+      text-decoration: none
+      padding: 12px 8px
+      &:hover
+        color: #ef5b70
+        text-decoration: none
+        transition: 0.3s ease-in-out
+      &_inactive:hover
+        color: #c4c4c4
+    &-button
+      padding: 12px 44px
+      background-color: #fff
+      text-transform: capitalize
+      border: 1px solid #ef5b70
+      color: #ef5b70
+      font-size: 16px
+      font-weight: bold
+      cursor: pointer
+      &:hover
+        background-color: $pink
+        color: #fff
+        transition: 0.3s ease-in-out
+      &:active
+        outline: 1px dotted #000
+.catalog__menu-section[open] > .catalog__menu-category
+  color: #ef5b70
+  &:after
+    font-family: "Font Awesome 5 Free", sans-serif
+    content: '\f0dd'
+    vertical-align: top
