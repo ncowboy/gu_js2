@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8"/>
   <title>Интернет магазин</title>
   <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet"/>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-  <link rel="stylesheet" href="../css/vendor/bootstrap.min.css"/>
-  <link rel="stylesheet" href="../css/style.css"/>
-  <link rel="stylesheet" href="../css/style.compil.css"/>
+  <link rel="stylesheet" href="css/vendor/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/style.compil.css"/>
 </head>
+
 <body>
 <header class="header">
   <div class="container header__flex">
     <div class="header__left">
-      <a class="logo" href="index.html"><img class="logo__img" src="../img/logo.png" alt="logo"/><span class="logo__bran">BRAN</span><span
+      <a class="logo" href="/"><img class="logo__img" src="img/logo.png" alt="logo"/><span class="logo__bran">BRAN</span><span
           class="logo__d">D</span></a>
       <form class="header__search-form" action="#">
         <button class="button__browse">Browse <i class="fas fa-sort-down"></i></button>
@@ -57,7 +59,7 @@
         <div class="dropdown dropdown_cart">
           <div class="dropdown_cart-item">
             <div class="dropdown_cart-img">
-              <img src="../img/product1.jpg" alt="Cart Item">
+              <img src="img/product1.jpg" alt="Cart Item">
             </div>
             <div class="dropdown_cart-product">
               <a href="#" class="dropdown_cart-name">Rebox Zane</a>
@@ -74,7 +76,7 @@
           </div>
           <div class="dropdown_cart-item">
             <div class="dropdown_cart-img">
-              <img src="../img/product4.jpg" alt="Cart Item">
+              <img src="img/product4.jpg" alt="Cart Item">
             </div>
             <div class="dropdown_cart-product">
               <a href="#" class="dropdown_cart-name">Rebox Zane</a>
@@ -93,8 +95,8 @@
             <div>total</div>
             <div class="dropdown_cart-total">$500.00</div>
           </div>
-          <a href="checkout.html" class="button__cart button__cart_checkout">checkout</a>
-          <a href="cart.html" class="button__cart button__cart_cart">go to cart</a>
+          <a href="/checkout" class="button__cart button__cart_checkout">checkout</a>
+          <a href="/cart" class="button__cart button__cart_cart">go to cart</a>
         </div>
 
       </div>
@@ -105,8 +107,8 @@
 <nav class="navigation">
   <div class="container">
     <ul class="menu">
-      <li class="menu__item"><a href="index.html" class="menu__link">Home</a></li>
-      <li class="menu__item"><a href="category.html" class="menu__link">Man</a>
+      <li class="menu__item"><a href="/" class="menu__link">Home</a></li>
+      <li class="menu__item"><a href="/category" class="menu__link">Man</a>
         <div class="dropdown dropdown_menu">
           <div class="dropdown__col">
             <div class="dropdown__colgroup">
@@ -148,13 +150,13 @@
             <div class="dropdown__colgroup">
               <div class="dropdown__ads">
                 <a href="#">
-                  <img src="../img/super_sale.jpg" alt="Super sale"></a>
+                  <img src="img/super_sale.jpg" alt="Super sale"></a>
               </div>
             </div>
           </div>
         </div>
       </li>
-      <li class="menu__item"><a href="category.html" class="menu__link">Women</a>
+      <li class="menu__item"><a href="/category" class="menu__link">Women</a>
         <div class="dropdown dropdown_menu">
           <div class="dropdown__col">
             <div class="dropdown__colgroup">
@@ -196,13 +198,13 @@
             <div class="dropdown__colgroup">
               <div class="dropdown__ads">
                 <a href="#">
-                  <img src="../img/super_sale.jpg" alt="Super sale"></a>
+                  <img src="img/super_sale.jpg" alt="Super sale"></a>
               </div>
             </div>
           </div>
         </div>
       </li>
-      <li class="menu__item"><a href="category.html" class="menu__link">Kids</a>
+      <li class="menu__item"><a href="/category" class="menu__link">Kids</a>
         <div class="dropdown dropdown_menu">
           <div class="dropdown__col">
             <div class="dropdown__colgroup">
@@ -244,13 +246,13 @@
             <div class="dropdown__colgroup">
               <div class="dropdown__ads">
                 <a href="#">
-                  <img src="../img/super_sale.jpg" alt="Super sale"></a>
+                  <img src="img/super_sale.jpg" alt="Super sale"></a>
               </div>
             </div>
           </div>
         </div>
       </li>
-      <li class="menu__item"><a href="category.html" class="menu__link">Accoseriese</a>
+      <li class="menu__item"><a href="/category" class="menu__link">Accoseriese</a>
         <div class="dropdown dropdown_menu">
           <div class="dropdown__col">
             <div class="dropdown__colgroup">
@@ -292,7 +294,7 @@
             <div class="dropdown__colgroup">
               <div class="dropdown__ads">
                 <a href="#">
-                  <img src="../img/super_sale.jpg" alt="Super sale"></a>
+                  <img src="img/super_sale.jpg" alt="Super sale"></a>
               </div>
             </div>
           </div>
@@ -308,133 +310,83 @@
     <h2 class="new-arrivals__h2">new arrivals</h2>
     <div class="new-arrivals__nav">
       <p class="new-arrivals__breadcrumbs">
-        <a href="index.html" class="new-arrivals__link">home</a><span>/</span>
+        <a href="/" class="new-arrivals__link">home</a><span>/</span>
         <a href="#" class="new-arrivals__link">men</a><span>/</span>
         <a href="#" class="new-arrivals__link">new arrivals</a>
       </p>
     </div>
   </div>
 </section>
-<div class="cart-content">
-  <div class="container cart-container">
-    <table class="table cart-content-table">
-      <thead class="cart-content-header">
-      <tr>
-        <th>Product Details</th>
-        <th>unite Price</th>
-        <th>Quantity</th>
-        <th>shipping</th>
-        <th>Subtotal</th>
-        <th>ACTION</th>
-      </tr>
-      </thead>
-      <tr class="cart-content-item">
-        <td>
-          <div class="cart-content-item-details d-flex">
-            <div class="cart-content-item-details-img">
-              <img src="../img/product6.jpg" alt="Product">
+<div class="checkout">
+  <div class="container container__form">
+    <form action="#" class="form checkout-form">
+      <fieldset class="checkout-form__fieldset">
+        <legend class="checkout-form__legend">
+          01. Shipping Adress
+        </legend>
+        <div class="row">
+          <div class="checkout-form__form-group col-md-6">
+            <p class="checkout-form__hint_main">Check as a guest or register</p>
+            <p class="checkout-form__hint_secondary">Register with us for future convenience</p>
+            <div class="checkout-form__if-guest-inputs">
+              <label for="guest" class="checkout-form__label checkout-form__label_for-radio">
+                <input class="checkout-form__input_radio" type="radio" name="guest-register" id="guest">
+                <span class="checkout-form__label-text ">checkout as guest</span>
+              </label>
+              <label for="register" class="checkout-form__label checkout-form__label_for-radio">
+                <input class="checkout-form__input_radio" type="radio" name="guest-register" id="register">
+                <span class="checkout-form__label-text ">register</span>
+              </label>
             </div>
-            <div class="cart-content-item-details-text">
-              <a href="#" class="cart-content-item-details-name">
-                Mango People T-shirt
-              </a>
-              <p class="cart-content-item-details-color"><span class="cart-content-item-details-label">color: </span>red
-              </p>
-              <p class="cart-content-item-details-size"><span class="cart-content-item-details-label">size: </span>XIi
-              </p>
+            <p class="checkout-form__hint_main">register and save time!</p>
+            <p class="checkout-form__hint_secondary">Register with us for future convenience</p>
+            <div class="checkout-form__checkout-pluses">
+              <p class="checkout-form__hint_secondary">Fast and easy checkout</p>
+              <p class="checkout-form__hint_secondary">Easy access to your order history and status</p>
             </div>
+            <button class="checkout-form__button">Continue</button>
           </div>
-        </td>
-        <td>$150</td>
-        <td><input type="number" value="2" min="0" max="100"></td>
-        <td>FREE</td>
-        <td>$300</td>
-        <td><a href="#" class="dropdown_cart-close"><i class="fas fa-times-circle"></i></a></td>
-      </tr>
-      <tr class="cart-content-item">
-        <td>
-          <div class="cart-content-item-details d-flex">
-            <div class="cart-content-item-details-img">
-              <img src="../img/product3.jpg" alt="Product">
+          <div class="checkout-form__form-group col-md-6">
+            <p class="checkout-form__hint_main">Already registed?</p>
+            <p class="checkout-form__hint_secondary">Please log in below</p>
+            <label for="email" class="checkout-form__label checkout-form__label_for-text">EMAIL ADDRESS <span class="checkout-form__warning">*</span></label>
+            <input class="checkout-form__input" type="text" name="email" id="email">
+            <label for="password" class="checkout-form__label checkout-form__label_for-text">PASSWORD<span class="checkout-form__warning">*</span></label>
+            <input class="checkout-form__input" type="text" name="password" id="password">
+            <p class="checkout-form__warning checkout-form__warning_required">* Required Fileds</p>
+            <div class="d-flex mt-3">
+              <button class="checkout-form__button">log in</button>
+              <a class="checkout-form__warning checkout-form__warning_pass-restore" href="#">Forgot Password ?</a>
             </div>
-            <div class="cart-content-item-details-text">
-              <a href="#" class="cart-content-item-details-name">
-                Mango People T-shirt
-              </a>
-              <p class="cart-content-item-details-color"><span class="cart-content-item-details-label">color: </span>red
-              </p>
-              <p class="cart-content-item-details-size"><span class="cart-content-item-details-label">size: </span>XIi
-              </p>
-            </div>
+
           </div>
-        </td>
-        <td>$150</td>
-        <td><input type="number" value="2" min="0" max="100"></td>
-        <td>FREE</td>
-        <td>$300</td>
-        <td><a href="#" class="dropdown_cart-close"><i class="fas fa-times-circle"></i></a></td>
-      </tr>
-      <tr class="cart-content-item">
-        <td>
-          <div class="cart-content-item-details d-flex">
-            <div class="cart-content-item-details-img">
-              <img src="../img/product5.jpg" alt="Product">
-            </div>
-            <div class="cart-content-item-details-text">
-              <a href="#" class="cart-content-item-details-name">
-                Mango People T-shirt
-              </a>
-              <p class="cart-content-item-details-color"><span class="cart-content-item-details-label">color: </span>red
-              </p>
-              <p class="cart-content-item-details-size"><span class="cart-content-item-details-label">size: </span>XIi
-              </p>
-            </div>
-          </div>
-        </td>
-        <td>$150</td>
-        <td><input type="number" value="2" min="0" max="100"></td>
-        <td>FREE</td>
-        <td>$300</td>
-        <td><a href="#" class="dropdown_cart-close"><i class="fas fa-times-circle"></i></a></td>
-      </tr>
-    </table>
-  </div>
-</div>
-<div class="cart-controls">
-  <div class="container d-flex justify-content-between">
-    <a href="#" class="button__cart button__cart_cart cart-button">cLEAR SHOPPING CART</a>
-    <a href="#" class="button__cart button__cart_cart cart-button">cONTINUE sHOPPING</a>
-  </div>
-</div>
-<div class="cart-checkout">
-  <div class="container">
-    <form action="#" class="d-flex justify-content-between">
-      <div class="form-group cart-checkout-col d-flex flex-column">
-        <header class="cart-checkout-form-header">Shipping Adress</header>
-        <select name="cart-checkout-form-country" id="">
-          <option>bangladesh</option>
-          <option>bangladesh</option>
-          <option>bangladesh</option>
-        </select>
-        <input type="text" placeholder="state">
-        <input type="text" placeholder="postcode / zip">
-        <button class="cart-checkout-form-small_btn">get a quote</button>
-      </div>
-      <div class="form-group cart-checkout-col d-flex flex-column">
-        <header class="cart-checkout-form-header">coupon discount</header>
-        <p class="cart-checkout-form-discount-text">
-          Enter your coupon code if you have one
-        </p>
-        <input type="text" placeholder="coupon #">
-        <button class="cart-checkout-form-small_btn">Apply coupon</button>
-      </div>
-      <div class="cart-checkout-form-submit cart-checkout-col">
-        <div class="cart-checkout-form-submit-wrapper">
-          <p class="cart-checkout-form-submit-sub_total">Sub total <span>$900</span></p>
-          <p class="cart-checkout-form-submit-grand_total">grand total <span>$900</span></p>
-          <button type="submit" class="cart-checkout-form-submit_btn">proceed to checkout</button>
         </div>
-      </div>
+      </fieldset>
+      <fieldset class="checkout-form__fieldset">
+        <legend class="checkout-form__legend">
+          02.   BILLING INFORMATION
+        </legend>
+      </fieldset>
+      <fieldset class="checkout-form__fieldset">
+        <legend class="checkout-form__legend">
+          03.   SHIPPING INFORMATION
+        </legend>
+      </fieldset>
+      <fieldset class="checkout-form__fieldset">
+        <legend class="checkout-form__legend">
+          04.   SHIPPING METHOD
+        </legend>
+      </fieldset>
+      <fieldset class="checkout-form__fieldset">
+        <legend class="checkout-form__legend">
+          05.   PAYMENT METHOD
+        </legend>
+      </fieldset>
+      <fieldset class="checkout-form__fieldset">
+        <legend class="checkout-form__legend">
+          06.   ORDER REVIEW
+        </legend>
+      </fieldset>
     </form>
   </div>
 </div>
@@ -503,7 +455,7 @@
   <div class="footer__top">
     <div class="container footer__top-wrapper">
       <div class="footer__top-left">
-        <a class="logo" href="#"><img class="logo__img" src="../img/logo.png" alt="logo"/><span
+        <a class="logo" href="#"><img class="logo__img" src="img/logo.png" alt="logo"/><span
             class="logo__bran">BRAN</span><span class="logo__d">D</span></a>
         <p class="footer__text">Objectively transition extensive data rather than cross functional solutions.
           Monotonectally syndicate multidisciplinary materials before go forward benefits. Intrinsicly syndicate an
@@ -596,8 +548,8 @@
     </div>
   </div>
 </div>
-<script src="../js/vendor/jquery.min.js"></script>
-<script src="../js/vendor/bootstrap.min.js"></script>
+<script src="js/vendor/jquery.min.js"></script>
+<script src="js/vendor/bootstrap.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/popper.min.js"></script>
 </body>

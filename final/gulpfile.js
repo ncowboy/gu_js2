@@ -11,7 +11,7 @@ let gulp = require('gulp'), // Сам gulp
 
 
 gulp.task('html', () => {
-  return gulp.src('src/html/*.html') // Выбор файла
+  return gulp.src('src/*.html') // Выбор файла
     .pipe(htmlMin({
       collapseWhitespace: true // Использование минификации
     }))
