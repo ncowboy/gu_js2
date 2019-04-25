@@ -52,54 +52,7 @@
         </form>
       </div>
       <div class="header__right">
-        <div class="header__cart-wrapper">
-          <a href="#" class="header__cart">
-            <div class="header__cart-count"><span>2</span></div>
-          </a>
-          <div class="dropdown dropdown_cart">
-            <div class="dropdown_cart-item">
-              <div class="dropdown_cart-img">
-                <img src="img/product1.jpg" alt="Cart Item">
-              </div>
-              <div class="dropdown_cart-product">
-                <a href="#" class="dropdown_cart-name">Rebox Zane</a>
-                <div class="dropdown_cart-rate">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
-                </div>
-                <div class="dropdown_cart-sum">1 <span class="dropdown_cart-x"> x </span>$250</div>
-              </div>
-              <a href="#" class="dropdown_cart-close"><i class="fas fa-times-circle"></i></a>
-            </div>
-            <div class="dropdown_cart-item">
-              <div class="dropdown_cart-img">
-                <img src="img/product4.jpg" alt="Cart Item">
-              </div>
-              <div class="dropdown_cart-product">
-                <a href="#" class="dropdown_cart-name">Rebox Zane</a>
-                <div class="dropdown_cart-rate">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
-                </div>
-                <div class="dropdown_cart-sum">1 <span class="dropdown_cart-x"> x </span> $250</div>
-              </div>
-              <a href="#" class="dropdown_cart-close"><i class="fas fa-times-circle"></i></a>
-            </div>
-            <div class="dropdown_cart-total">
-              <div>total</div>
-              <div class="dropdown_cart-total">$500.00</div>
-            </div>
-            <a href="/checkout" class="button__cart button__cart_checkout">checkout</a>
-            <a href="/cart" class="button__cart button__cart_cart">go to cart</a>
-          </div>
-
-        </div>
+        <header-cart ref="cart"></header-cart>
         <a class="button" href="#">My Account <i class="fas fa-sort-down"></i></a>
       </div>
     </div>
@@ -573,6 +526,8 @@
 <script src="js/mixins.min.js"></script>
 <script src="js/Product.min.js"></script>
 <script src="js/FeaturedProducts.min.js"></script>
+<script src="js/HeaderCart.min.js"></script>
+<script src="js/HeaderProductInCart.min.js"></script>
 <script src="js/App.min.js"></script>
 </body>
 </html>

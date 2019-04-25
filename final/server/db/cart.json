@@ -1,0 +1,10 @@
+[
+    {
+        "qty": 2,
+        "id": 2,
+        "category_id": 1,
+        "name": "Red t-shirt",
+        "img": "img/product2.png",
+        "price": 47.99
+    }
+]

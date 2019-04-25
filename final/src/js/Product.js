@@ -4,7 +4,7 @@ Vue.component('product', {
               :class="this.$parent.isCatalog ? 'product product_catalog' : 'product'">
               <div class="product__wrapper">
                 <div class="product__hover">
-                  <a href="#" class="product__cart">
+                  <a href="#" @click.prevent="$root.$refs.cart.addToCart(item)" class="product__cart">
                     <div class="product__cart-bg"></div>
                     <div class="product__cart-text">Add to Cart</div>
                   </a>

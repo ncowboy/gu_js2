@@ -9,6 +9,7 @@ app.use('/category', express.static('dist/category.html'));
 app.use('/cart', express.static('dist/cart.html'));
 app.use('/checkout', express.static('dist/checkout.html'));
 app.use('/product', express.static('dist/single.html'));
+app.use('/api/cart', cart);
 
 app.get('/api/catalog', (req, res) => {
     fs.readFile('server/db/products.json', 'utf-8', (err, data) => {
