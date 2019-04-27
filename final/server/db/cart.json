@@ -1,10 +1,18 @@
 [
     {
-        "qty": 2,
+        "qty": 1,
         "id": 2,
         "category_id": 1,
         "name": "Red t-shirt",
         "img": "img/product2.png",
         "price": 47.99
+    },
+    {
+        "qty": 3,
+        "id": 3,
+        "category_id": 2,
+        "name": "Blue jacket",
+        "img": "img/product3.jpg",
+        "price": 94.99
     }
 ]
