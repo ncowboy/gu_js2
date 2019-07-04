@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "category_id": 2,
+    "name": "White t-shirt",
+    "img": "img/product1.jpg",
+    "price": 45.99
+  },
+  {
+    "id": 2,
+    "category_id": 1,
+    "name": "Red t-shirt",
+    "img": "img/product2.png",
+    "price": 47.99
+  },
+  {
+    "id": 3,
+    "category_id": 2,
+    "name": "Blue jacket",
+    "img": "img/product3.jpg",
+    "price": 94.99
+  },
+  {
+    "id": 4,
+    "category_id": 1,
+    "name": "printed woman dress",
+    "img": "img/product4.jpg",
+    "price": 99.99
+  },
+  {
+    "id": 5,
+    "category_id": 1,
+    "name": "striped woman dress",
+    "img": "img/product5.jpg",
+    "price": 105.99
+  },
+  {
+    "id": 6,
+    "category_id": 2,
+    "name": "Gray Blazer ",
+    "img": "img/product6.jpg",
+    "price": 99.49
+  },
+  {
+    "id": 7,
+    "category_id": 2,
+    "name": "yellow shorts ",
+    "img": "img/product7.jpg",
+    "price": 74.49
+  },
+  {
+    "id": 8,
+    "category_id": 2,
+    "name": "blue hoody ",
+    "img": "img/product8.jpg",
+    "price": 89.99
+  },
+  {
+    "id": 9,
+    "category_id": 1,
+    "name": "striped woman dress",
+    "img": "img/product5.jpg",
+    "price": 105.29
+  }
+]
